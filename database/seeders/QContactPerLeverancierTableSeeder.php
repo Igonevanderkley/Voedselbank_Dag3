@@ -13,7 +13,7 @@ class QContactPerLeverancierTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('q_contact_per_leverancier')->insert([
+        DB::table('contact_per_leverancier_q_s')->insert([
             [
                 'id' => 1,
                 'leverancier_id' => 1,

@@ -122,6 +122,9 @@
                         <td>{{ $leverancier->mobiel }}</td>
                         <td>{{ $leverancier->leverancier_nummer }}</td>
                         <td>{{ $leverancier->leverancier_type }}</td>
+                        <td>
+                            <a href="{{ route('leveranciers.details', ['leverancier' => $leverancier->idd]) }}">Info </a>
+                        </td>
                         <!-- Voeg andere relevante kolommen toe -->
                     </tr>
                 @endforeach
@@ -131,8 +134,8 @@
 
     <!-- Navigatieknoppen -->
     <div class="button-container">
-        <a href="{{ route('dashboard') }}" class="btn btn-home">Home</a>
         <a href="{{ route('leveranciers.show') }}" class="btn">Terug </a>
+        <a href="{{ route('dashboard') }}" class="btn btn-home">Home</a>
     </div>
 </div>
 </body>

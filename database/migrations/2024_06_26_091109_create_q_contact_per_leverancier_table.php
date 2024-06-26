@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('q_contact_per_leverancier', function (Blueprint $table) {
+        Schema::create('contact_per_leverancier_q_s', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger ('leverancier_id');
             $table->unsignedBigInteger ('contact_id');
             $table->timestamps();
 
-            $table->foreign('leverancier_id')->references('id')->on('leverancier_q_s');
+            $table->foreign('leverancier_id')->references('idd')->on('leverancier_q_s');
             $table->foreign('contact_id')->references('id')->on('contacts_q_s');        
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('q_contact_per_leverancier');
+        Schema::dropIfExists('contact_per_leverancier_q_s');
     }
 };

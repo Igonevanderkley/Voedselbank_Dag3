@@ -14,7 +14,7 @@ class QProductPerLeverancierTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('q_product_per_leverancier')->insert([
+        DB::table('product_per_leverancier_q_s')->insert([
             [
                 'id' => 1,
                 'leverancier_id' => 4,

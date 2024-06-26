@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('q_product_per_leverancier', function (Blueprint $table) {
+        Schema::create('product_per_leverancier_q_s', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger ('leverancier_id');
             $table->unsignedBigInteger ('product_id');
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('datum_eerst_volgende_levering');
             $table->timestamps();
 
-            $table->foreign('leverancier_id')->references('id')->on('leverancier_q_s');
+            $table->foreign('leverancier_id')->references('idd')->on('leverancier_q_s');
             $table->foreign('product_id')->references('id')->on('products_q_s');        
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('q_product_per_leverancier');
+        Schema::dropIfExists('product_per_leverancier_q_s');
     }
 };
