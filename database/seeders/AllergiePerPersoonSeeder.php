@@ -31,7 +31,6 @@ class AllergiePerPersoonSeeder extends Seeder
             'allergie_id' => 3,
         ]);
 
-
         AllergiePerPersoon::create([
             'id' => 4,
             'persoon_id' => 7,
