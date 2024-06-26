@@ -14,7 +14,7 @@ class QLeverancierTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('q_leverancier')->insert([
+        DB::table('leverancier_q_s')->insert([
             [
                 'id' => 1,
                 'naam' => 'Albert Heijn',

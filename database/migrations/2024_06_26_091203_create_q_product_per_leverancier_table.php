@@ -19,8 +19,8 @@ return new class extends Migration
             $table->date('datum_eerst_volgende_levering');
             $table->timestamps();
 
-            $table->foreign('leverancier_id')->references('id')->on('q_leverancier');
-            $table->foreign('product_id')->references('id')->on('q_products');        
+            $table->foreign('leverancier_id')->references('id')->on('leverancier_q_s');
+            $table->foreign('product_id')->references('id')->on('products_q_s');        
         });
     }
 

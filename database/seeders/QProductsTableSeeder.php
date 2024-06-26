@@ -14,7 +14,7 @@ class QProductsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('q_products')->insert([
+        DB::table('products_q_s')->insert([
             [
                 'id' => 1,
                 'categorie_id' => 1,

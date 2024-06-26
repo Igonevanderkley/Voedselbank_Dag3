@@ -10,7 +10,7 @@ class QContactsTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('q_contacts')->insert([
+        DB::table('contacts_q_s')->insert([
             [
                 'id' => 1,
                 'straat' => 'Prinses Irenestraat',

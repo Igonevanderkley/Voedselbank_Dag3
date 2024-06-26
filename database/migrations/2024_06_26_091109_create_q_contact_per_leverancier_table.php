@@ -17,8 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger ('contact_id');
             $table->timestamps();
 
-            $table->foreign('leverancier_id')->references('id')->on('q_leverancier');
-            $table->foreign('contact_id')->references('id')->on('q_contacts');        
+            $table->foreign('leverancier_id')->references('id')->on('leverancier_q_s');
+            $table->foreign('contact_id')->references('id')->on('contacts_q_s');        
         });
     }
 

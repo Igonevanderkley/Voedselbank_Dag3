@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('q_contacts', function (Blueprint $table) {
+        Schema::create('contacts_q_s', function (Blueprint $table) {
             $table->id();
             $table->string('straat');
             $table->integer('huisnummer');

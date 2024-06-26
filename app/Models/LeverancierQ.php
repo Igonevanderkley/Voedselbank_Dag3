@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class LeverancierQ extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'naam',
         'contact_persoon',
