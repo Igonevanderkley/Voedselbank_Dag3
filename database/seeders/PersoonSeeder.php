@@ -36,7 +36,6 @@ class PersoonSeeder extends Seeder
             'is_vertegenwoordiger' => false,
         ]);
 
-
         Persoon::create([
             'id' => 3,
             'gezin_id' => NULL,
@@ -223,10 +222,5 @@ class PersoonSeeder extends Seeder
             'type_persoon' => 'Klant',
             'is_vertegenwoordiger' => true,
         ]);
-
-
-
-
     }
-
 }
