@@ -30,7 +30,6 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/gezinnen', [GezinController::class, 'read'])->name('gezinnen');
-
 Route::get('/allergie_details/{gezinId}', [AllergieController::class, 'read'])->name('allergie_details');
 
 
