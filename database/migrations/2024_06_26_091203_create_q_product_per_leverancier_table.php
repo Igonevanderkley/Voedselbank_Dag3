@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('q_product_per_leverancier', function (Blueprint $table) {
             $table->id();
+            $table->integer('leverancier_id');
+            $table->integer('product_id');
+            $table->date('datum_aangeleverd');
+            $table->date('datum_eerst_volgende_levering');
             $table->timestamps();
-        });
+
+            $table->foreign('leverancier_id')->references('id')->on('leveranciers');
+            $table->foreign('product_id')->references('id')->on('products');        });
     }
 
     /**

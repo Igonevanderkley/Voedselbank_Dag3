@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('q_products', function (Blueprint $table) {
             $table->id();
+            $table->integer('categorie_id')->nullable();
+            $table->string('naam', 50);
+            $table->string('soort_allergie', 20);
+            $table->string('barcode', 15);
+            $table->date('houdbaarheidsdatum');
+            $table->string('omschrijving', 50);
+            $table->string('status', 20);
             $table->timestamps();
         });
     }

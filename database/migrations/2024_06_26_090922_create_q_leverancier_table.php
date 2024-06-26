@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('q_leverancier', function (Blueprint $table) {
             $table->id();
+            $table->string('naam', 255);
+            $table->string('contact_persoon', 255);
+            $table->string('leverancier_nummer', 10);
+            $table->string('leverancier_type', 50);
             $table->timestamps();
         });
     }

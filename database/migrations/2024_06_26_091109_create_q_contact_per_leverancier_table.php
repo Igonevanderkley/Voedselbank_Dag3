@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('q_contact_per_leverancier', function (Blueprint $table) {
             $table->id();
+            $table->integer('leverancier_id');
+            $table->integer('contact_id');
             $table->timestamps();
-        });
+
+            $table->foreign('leverancier_id')->references('id')->on('leveranciers');
+            $table->foreign('contact_id')->references('id')->on('contacts');        });
     }
 
     /**
