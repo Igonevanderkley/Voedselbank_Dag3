@@ -52,14 +52,14 @@ class GezinSeeder extends Seeder
             'code' => 'G0004',
             'omschrijving' => 'Bijstandsgezin',
             'aantal_volwassenen' => 1,
-            'aantal_kinderen' => 0,
-            'aantal_babys' => 2,
+            'aantal_kinderen' => 2,
+            'aantal_babys' => 0,
             'totaal_aantal_personen' => 3,
         ]);
 
         Gezin::create([
             'id' => 5,
-            'naam' => 'elongGezin',
+            'naam' => 'DeJongGezin',
             'code' => 'G0005',
             'omschrijving' => 'Bijstandsgezin',
             'aantal_volwassenen' => 1,
