@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('q_contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('straat', 50);
+            $table->string('straat');
             $table->integer('huisnummer');
-            $table->string('toevoeging', 4)->nullable();
-            $table->string('postcode', 6);
-            $table->string('woonplaats', 20);
-            $table->string('email', 50);
-            $table->string('mobiel', 13);
+            $table->string('toevoeging')->nullable();
+            $table->string('postcode');
+            $table->string('woonplaats');
+            $table->string('email');
+            $table->string('mobiel');
             $table->timestamps();
         });
     }
