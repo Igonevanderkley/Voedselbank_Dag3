@@ -34,7 +34,7 @@
     </thead>
     <tbody>
     </tbody>
-</table
+</table>
 
 <a href="{{ route('leveranciers.show') }}" class="btn">Terug naar Leveranciers</a>
 </body>
