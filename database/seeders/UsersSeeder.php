@@ -11,10 +11,7 @@ use App\Models\User;
 
 class UsersSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+ function run(): void
     {
         User::create([
             'id' => 1,
