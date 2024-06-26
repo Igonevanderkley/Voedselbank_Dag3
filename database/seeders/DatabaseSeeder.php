@@ -12,11 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(QLeverancierTableSeeder::class);
+        $this->call(QContactsTableSeeder::class);
+        $this->call(QProductsTableSeeder::class);
+        $this->call(QContactPerLeverancierTableSeeder::class);
+        $this->call(QProductPerLeverancierTableSeeder::class);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }
