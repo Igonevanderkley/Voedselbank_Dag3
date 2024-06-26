@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class ContactsQ extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+        'straat',
+        'huisnummer',
+        'toevoeging',
+        'postcode',
+        'woonplaats',
+        'email',
+        'mobiel',
+    ];
 }
