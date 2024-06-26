@@ -38,4 +38,4 @@
 
 <a href="{{ route('leveranciers.show') }}" class="btn">Terug naar Leveranciers</a>
 </body>
-</html
+</html>
