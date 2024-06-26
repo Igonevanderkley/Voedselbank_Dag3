@@ -31,8 +31,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/gezinnen', [GezinController::class, 'read'])->name('gezinnen');
 Route::get('/allergie_details/{gezinId}', [AllergieController::class, 'read'])->name('allergie_details');
-
-
 Route::get('/wijzig_allergie/{allergieId}/{persoonId}', [AllergieController::class, 'update'])->name('wijzig_allergie');
 
 Route::post('/wijzig_allergie/edit', [AllergieController::class, 'edit'])->name('edit');
