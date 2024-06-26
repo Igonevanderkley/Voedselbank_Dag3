@@ -20,13 +20,6 @@
         </tr>
     </thead>
     <tbody>
-        <!-- @foreach ($query_contacts as $contact)
-            <tr>
-                <td>{{ $contact->naam }}</td>
-                <td>{{ $contact->leverancier_nummer }}</td>
-                <td>{{ $contact->leverancier_type }}</td>
-            </tr>     
-        @endforeach -->
     </tbody>
 </table>
 <table>
@@ -40,19 +33,6 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($products as $product)
-            <tr>
-                <td>{{ $product->naam }}</td>
-                <td>{{ $product->soort_allergie }}</td>
-                <td>{{ $product->barcode }}</td>
-                <td>{{ $product->houdbaarheidsdatum }}</td>
-                <td>
-                    <a href="{{ route('leveranciers.details', ['product' => $product->id]) }}">
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/860/860786.svg" alt="Potlood" width="20" height="20">
-                    </a>
-                </td>
-            </tr>
-        @endforeach
     </tbody>
 </table>
 
