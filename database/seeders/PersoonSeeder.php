@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Persoon;
+use PhpParser\Node\Stmt\TryCatch;
 
 class PersoonSeeder extends Seeder
 {
@@ -148,17 +149,6 @@ class PersoonSeeder extends Seeder
 
         Persoon::create([
             'id' => 13,
-            'gezin_id' => 6,
-            'voornaam' => 'Johan',
-            'tussenvoegsel' => 'van',
-            'achternaam' => 'VanDerBerg',
-            'geboortedatum' => '1990-05-20',
-            'type_persoon' => 'Klant',
-            'is_vertegenwoordiger' => false,
-        ]);
-
-        Persoon::create([
-            'id' => 14,
             'gezin_id' => 3,
             'voornaam' => 'Selma',
             'tussenvoegsel' => 'van de',
@@ -169,7 +159,7 @@ class PersoonSeeder extends Seeder
         ]);
 
         Persoon::create([
-            'id' => 15,
+            'id' => 14,
             'gezin_id' => 4,
             'voornaam' => 'Eva',
             'tussenvoegsel' => NULL,
@@ -180,12 +170,23 @@ class PersoonSeeder extends Seeder
         ]);
 
         Persoon::create([
-            'id' => 16,
+            'id' => 15,
             'gezin_id' => 4,
             'voornaam' => 'Felicia',
             'tussenvoegsel' => NULL,
             'achternaam' => 'Scherder',
             'geboortedatum' => '2021-11-29',
+            'type_persoon' => 'Klant',
+            'is_vertegenwoordiger' => false,
+        ]);
+
+        Persoon::create([
+            'id' => 16,
+            'gezin_id' => 4,
+            'voornaam' => 'Devin',
+            'tussenvoegsel' => NULL,
+            'achternaam' => 'Scherder',
+            'geboortedatum' => '2024-03-01',
             'type_persoon' => 'Klant',
             'is_vertegenwoordiger' => false,
         ]);
