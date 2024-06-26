@@ -8,9 +8,7 @@ use App\Models\Allergie;
 
 class AllergieSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
         Allergie::create([
