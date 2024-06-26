@@ -11,11 +11,30 @@
 @if (session('success'))
     <div class="alert">{{ session('success') }}</div>
 @endif
-
+<table>
+    <thead>
+        <tr>
+            <th>Naam:</th>
+            <th>Leveranciernummer</th>
+            <th>Leveranciertype</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- @foreach ($query_contacts as $contact)
+            <tr>
+                <td>{{ $contact->naam }}</td>
+                <td>{{ $contact->leverancier_nummer }}</td>
+                <td>{{ $contact->leverancier_type }}</td>
+            </tr>     
+        @endforeach -->
+    </tbody>
+</table>
 <table>
     <thead>
         <tr>
             <th>Naam</th>
+            <th>Soort Allergie</th>
+            <th>Barcode</th>
             <th>Houdbaarheidsdatum</th>
             <th>Wijzig Product</th>
         </tr>
@@ -24,6 +43,8 @@
         @foreach ($products as $product)
             <tr>
                 <td>{{ $product->naam }}</td>
+                <td>{{ $product->soort_allergie }}</td>
+                <td>{{ $product->barcode }}</td>
                 <td>{{ $product->houdbaarheidsdatum }}</td>
                 <td>
                     <a href="{{ route('leveranciers.details', ['product' => $product->id]) }}">

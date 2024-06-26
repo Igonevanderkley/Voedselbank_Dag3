@@ -34,25 +34,24 @@ class QLeverancierController extends Controller
         ]);
     }
 
-    public function details($leverancier)
+    public function details()
     {
         // Fetch contact details for the specified leverancier
         $query_contacts = ContactPerLeverancierQ::select('leverancier_q_s.naam', 'leverancier_q_s.leverancier_nummer', 'leverancier_q_s.leverancier_type')
                                                 ->join('leverancier_q_s', 'contact_per_leverancier_q_s.leverancier_id', '=', 'leverancier_q_s.idd')
-                                                ->where('leverancier_q_s.idd', '=', $leverancier)
+                                                // ->where('leverancier_q_s.idd', '=', $id)
                                                 ->get();
     
         // Fetch product details for the specified leverancier
         $query_products = ProductPerLeverancierQ::select('products_q_s.naam', 'products_q_s.soort_allergie', 'products_q_s.barcode', 'products_q_s.houdbaarheidsdatum')
                                                 ->join('products_q_s', 'product_per_leverancier_q_s.product_id', '=', 'products_q_s.id')
-                                                ->where('product_per_leverancier_q_s.leverancier_id', '=', $leverancier)
+                                                // ->where('product_per_leverancier_q_s.leverancier_id', '=', $id)
                                                 ->get();
     
-        dd($query_contacts);
         // Return the leverancier details to the view
         return view('leverancier.details', [
-            'leveranciers' => $query_contacts,
+            'leverancier_contacts' => $query_contacts,
             'products' => $query_products
         ]);
     }
-    }
+}

@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/leveranciers/show', [QLeverancierController::class, 'show'])->name('leveranciers.show');
-Route::get('/leveranciers/details{leverancier}', [QLeverancierController::class, 'details'])->name('leveranciers.details');
+Route::get('/leveranciers/details', [QLeverancierController::class, 'details'])->name('leveranciers.details');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
