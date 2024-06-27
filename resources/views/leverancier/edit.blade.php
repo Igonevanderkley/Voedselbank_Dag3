@@ -96,7 +96,7 @@
         @foreach ($query_date as $date)
         <form id="wijzigForm" action="{{ route('product.edit', $date->id) }}">
             @csrf
-            <p>De houdbaarheidsdatum is niet veranderd</p>
+            <p id="warningMessage" class="hidden">De houdbaarheidsdatum is niet veranderd</p>
             
             <label for="houdbaarheidsdatum">Huidige Houdbaarheidsdatum:</label>
             <input type="date" id="verlenging-info" name="houdbaarheidsdatum" value="{{ $date->houdbaarheidsdatum }}">
@@ -112,5 +112,12 @@
             <a href="{{ route('dashboard') }}" class="btn btn-home">Home</a>
         </div>
     </div>
+    <script>
+        document.querySelector('.btn-green').addEventListener('click', function() {
+  var message = document.getElementById('warningMessage');
+  message.classList.remove('hidden');
+  message.classList.add('red-text');
+});
+    </script>
 </body>
 </html>
