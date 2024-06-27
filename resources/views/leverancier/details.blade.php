@@ -101,7 +101,7 @@
                 <td>{{ $product->barcode }}</td>
                 <td>{{ $product->houdbaarheidsdatum }}</td>
                 <td>
-                    button
+                    <a href="{{ route('product.edit', ['id' => $product->id]) }}" onclick="return confirm('Wil je de houdbaarheidsdatum aanpassen naar maximaal 7 dagen na de huidige houdbaarheidsdatum?')">Wijzig Product</a>
                 </td>
             </tr>
             @endforeach
