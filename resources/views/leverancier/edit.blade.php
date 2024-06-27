@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,6 +38,7 @@
 
         p {
             margin-bottom: 10px;
+            color: red; /* Standaard tekstkleur rood */
         }
 
         .btn-green {
@@ -89,46 +89,28 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1>Wijzig Product</h1>
-        @if (isset($error))
-            <div class="error-message">{{ $error }}</div>
-        @endif
 
         @foreach ($query_date as $date)
         <form id="wijzigForm" action="{{ route('product.edit', $date->id) }}">
             @csrf
+            <p>De houdbaarheidsdatum is niet veranderd</p>
             
             <label for="houdbaarheidsdatum">Huidige Houdbaarheidsdatum:</label>
-                <input type="date" id="verlenging-info" name="houdbaarheidsdatum" value="{{ $date->houdbaarheidsdatum }}">
-        @endforeach
-                <p>De houdbaarheidsdatum mag met maximaal 7 dagen verlengd worden</p>
+            <input type="date" id="verlenging-info" name="houdbaarheidsdatum" value="{{ $date->houdbaarheidsdatum }}">
+            
+            <p>De houdbaarheidsdatum mag met maximaal 7 dagen verlengd worden</p>
 
-                <button type="submit" class="btn-green" onclick="showMessage()">Wijzig houdbaarheidsdatum</button>
-            </form>
+            <button type="submit" class="btn-green">Wijzig houdbaarheidsdatum</button>
+        </form>
+        @endforeach
 
         <div class="button-container">
             <a href="{{ route('leveranciers.show') }}" class="btn">Terug</a>
             <a href="{{ route('dashboard') }}" class="btn btn-home">Home</a>
         </div>
     </div>
-
-    <script>
-        function showMessage() {
-            var messageDiv = document.createElement('div');
-            messageDiv.className = 'error-message';
-            messageDiv.textContent = 'Melding met rode achtergrond en rode letters.';
-            document.body.appendChild(messageDiv);
-
-            setTimeout(function() {
-                messageDiv.style.display = 'block'; // Toon de melding na toevoegen
-                setTimeout(function() {
-                    messageDiv.style.display = 'none'; // Verberg de melding na 3 seconden
-                }, 10000);
-            }, 10000);
-        }
-    </script>
 </body>
 </html>
