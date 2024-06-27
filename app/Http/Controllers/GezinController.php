@@ -11,46 +11,31 @@ class GezinController extends Controller
 {
     public function read()
     {
-
         $allergienOpties = Allergie::all();
 
-        $gezinnen = Persoon::join('allergie_per_persoon', 'persoon_id', '=', 'persoon.id')
-            ->join('allergie', 'allergie_id', '=', 'allergie.id')
-            ->join('gezin', 'gezin_id', '=', 'gezin.id')
-            ->select('gezin.id', 'gezin.naam as gezinsNaam', 'gezin.omschrijving as gezinsOmschrijving', 'gezin.aantal_volwassenen', 'gezin.aantal_kinderen', 'gezin.aantal_babys')
-            ->groupBy('gezin.id')
-            ->get();
+        $gezinnen = Persoon::getGezinnen();
 
-        $vertegenwoordigers = Persoon::select('voornaam', 'tussenvoegsel', 'achternaam')
-            ->where('is_vertegenwoordiger', 1)
-            ->get();
-
-        return view('gezinnen', ['gezinnen' => $gezinnen, 'vertegenwoordigers' => $vertegenwoordigers, 'allergienOpties' => $allergienOpties]);
+        return view('gezinnen', ['gezinnen' => $gezinnen, 'allergienOpties' => $allergienOpties]);
     }
 
     public function filter(Request $request)
     {
-
         $allergieId = $request->allergieId;
+
+        if ($allergieId == 0) {
+            return redirect()->route('gezinnen');
+        }
 
         $allergienOpties = Allergie::all();
 
-
-        $vertegenwoordigers = Persoon::select('voornaam', 'tussenvoegsel', 'achternaam')
-            ->where('is_vertegenwoordiger', 1)
-            ->get();
-
-        $gezinnen = Persoon::join('allergie_per_persoon', 'persoon_id', '=', 'persoon.id')
-            ->join('allergie', 'allergie_id', '=', 'allergie.id')
-            ->join('gezin', 'gezin_id', '=', 'gezin.id')
-            ->select('gezin.id', 'gezin.naam as gezinsNaam', 'gezin.omschrijving as gezinsOmschrijving', 'gezin.aantal_volwassenen', 'gezin.aantal_kinderen', 'gezin.aantal_babys')
-            ->groupBy('gezin.id')
-
-            ->where('allergie_per_persoon.allergie_id', $allergieId)->get();
+        $gezinnen = Persoon::getGezinnenPerAllergie($allergieId);
 
 
-
-        return view('gezinnen', ['gezinnen' => $gezinnen, 'vertegenwoordigers' => $vertegenwoordigers, 'allergienOpties' => $allergienOpties]);
-        // dd($request->all());
+        if ($gezinnen->isEmpty()) {
+            return redirect()->route('gezinnen')
+                ->with('status', 'Er zijn geen gezinnen met deze allergie');
+        } else {
+            return view('gezinnen', ['gezinnen' => $gezinnen, 'allergienOpties' => $allergienOpties]);
+        }
     }
 }

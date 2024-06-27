@@ -165,7 +165,7 @@ class PersoonSeeder extends Seeder
             'achternaam' => 'Scherder',
             'geboortedatum' => '1921-11-24',
             'type_persoon' => 'Klant',
-            'is_vertegenwoordiger' => false,
+            'is_vertegenwoordiger' => true,
         ]);
 
         Persoon::create([

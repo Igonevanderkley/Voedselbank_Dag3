@@ -16,5 +16,4 @@ class Allergie extends Model
     ];
 
     // Add any relationships or custom methods here
-
 }
