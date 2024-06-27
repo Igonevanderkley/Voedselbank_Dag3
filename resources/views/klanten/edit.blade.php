@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('klant Details') }}
+            {{ __('Wijzig klant Details') }}
         </h2>
     </x-slot>
     <form action="" method="POST">
@@ -66,7 +66,7 @@
         <div>
             <a href=""
                 style="background-color: #3490dc; color: white; padding: 10px 24px; margin: 20px 0; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; text-decoration: none; display: inline-block;">
-                Wijzig
+                Wijzig klant Details
             </a>
         </div>
         <div>
