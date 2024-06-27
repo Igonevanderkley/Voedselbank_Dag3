@@ -60,7 +60,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Overzicht Producten van Leverancier</h1>
+    <h1>Overzicht Producten</h1>
     
     <!-- Table for Leverancier Details -->
     <table>
@@ -101,9 +101,7 @@
                 <td>{{ $product->barcode }}</td>
                 <td>{{ $product->houdbaarheidsdatum }}</td>
                 <td>
-                    <a href="{{ route('leveranciers.details') }}">
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/860/860786.svg" alt="Potlood" width="20" height="20">
-                    </a>
+                    button
                 </td>
             </tr>
             @endforeach

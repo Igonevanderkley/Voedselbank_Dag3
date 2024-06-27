@@ -123,7 +123,7 @@
                         <td>{{ $leverancier->leverancier_nummer }}</td>
                         <td>{{ $leverancier->leverancier_type }}</td>
                         <td>
-                            <a href="{{ route('leveranciers.details') }}">Info </a>
+                            <a href="{{ route('leveranciers.details', ['id' => $leverancier->idd]) }}">Info</a>
                         </td>
                         <!-- Voeg andere relevante kolommen toe -->
                     </tr>

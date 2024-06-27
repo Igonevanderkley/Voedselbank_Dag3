@@ -6,13 +6,8 @@
     <title>Wijzig Product</title>
 </head>
 <body>
-<h1>Wijzig Houdbaarheidsdatum van {{ $product->naam }}</h1>
+    @foreach ( $query_products as $product )
+    <h1>Wijzig Houdbaarheidsdatum van {{ $product->naam }}</h1>
+    
+    @endforeach
 
-@if ($errors->any())
-    <div class="alert">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </
