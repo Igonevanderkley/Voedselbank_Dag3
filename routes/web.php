@@ -30,5 +30,10 @@ Route::middleware('auth')->group(function () {
 });
 // route maken voor de homepagina
 Route::get('/klanten', [KlantenController::class, 'index'])->name('klanten.index');
+Route::get('/klanten/klantenDetails/{id}', [KlantenController::class, 'show'])->name('klanten.klantenDetails');
+// Route::get('/klanten/klantenDetails/{id}', [KlantenController::class, 'show'])->name('klanten.show');
+Route::get('/klanten/klantenDetails/{id}', 'KlantenController@klantenDetails')->name('klanten.klantenDetails');
+// Route::get('/klanten/klantenDetails/{id}', 'KlantenController@klantenDetails')->name('klanten.show');
+
 
 require __DIR__ . '/auth.php';
