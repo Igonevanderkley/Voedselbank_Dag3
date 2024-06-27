@@ -101,7 +101,7 @@
                 <td>{{ $product->barcode }}</td>
                 <td>{{ $product->houdbaarheidsdatum }}</td>
                 <td>
-                    <a href="{{ route('product.edit', ['id' => $product->id]) }}" onclick="return confirm('Wil je de houdbaarheidsdatum aanpassen naar maximaal 7 dagen na de huidige houdbaarheidsdatum?')">Wijzig Product</a>
+                    <a href="{{ route('product.edit', ['id' => $product->id]) }}">Wijzig Product</a>
                 </td>
             </tr>
             @endforeach
@@ -110,7 +110,7 @@
 
     <!-- Navigation Buttons -->
     <div class="button-container">
-        <a href="{{ route('leveranciers.show') }}" class="btn">Terug naar Leveranciers</a>
+        <a href="{{ route('leveranciers.show') }}" class="btn">Terug</a>
         <a href="{{ route('dashboard') }}" class="btn btn-home">Home</a>
     </div>
 </div>

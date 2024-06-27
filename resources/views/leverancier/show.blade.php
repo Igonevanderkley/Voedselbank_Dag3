@@ -134,7 +134,7 @@
 
     <!-- Navigatieknoppen -->
     <div class="button-container">
-        <a href="{{ route('leveranciers.show') }}" class="btn">Terug </a>
+        <!-- <a href="{{ route('leveranciers.show') }}" class="btn">Terug </a> -->
         <a href="{{ route('dashboard') }}" class="btn btn-home">Home</a>
     </div>
 </div>
