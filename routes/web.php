@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QLeverancierController;
 use App\Http\Controllers\QProductController;
+use App\Http\Controllers\KlantenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +37,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+// route maken voor de homepagina
+Route::get('/klanten', [KlantenController::class, 'index'])->name('klanten.index');
+Route::get('/klanten/klantenDetails/{id}', [KlantenController::class, 'show'])->name('klanten.klantenDetails');
+// Route::get('/klanten/klantenDetails/{id}', [KlantenController::class, 'show'])->name('klanten.show');
+Route::get('/klanten/klantenDetails/{id}', 'KlantenController@klantenDetails')->name('klanten.klantenDetails');
+// Route::get('/klanten/klantenDetails/{id}', 'KlantenController@klantenDetails')->name('klanten.show');
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';
