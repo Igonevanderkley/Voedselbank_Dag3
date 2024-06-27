@@ -9,11 +9,15 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+
     public function run(): void
     {
+        $this->call(GezinSeeder::class);
+        $this->call(PersoonSeeder::class);
+        $this->call(UsersSeeder::class);
+        $this->call(AllergieSeeder::class);
+        $this->call(AllergiePerPersoonSeeder::class);
+
         $this->call(QLeverancierTableSeeder::class);
         $this->call(QContactsTableSeeder::class);
         $this->call(QProductsTableSeeder::class);
@@ -26,7 +30,6 @@ class DatabaseSeeder extends Seeder
             S_GezinSeeder::class,
             S_PersoonSeeder::class,
             S_ContactPerGezinSeeder::class,
-            UsersSeeder::class,
 
         ]);
     }
