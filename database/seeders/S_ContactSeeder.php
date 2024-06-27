@@ -121,17 +121,18 @@ class S_ContactSeeder extends Seeder
                 'toevoeging' => null,
                 'postcode' => '5271TH',
                 'woonplaats' => 'Maaskantje',
-                'email' => 'b.van.driel@gmail.com', 'mobiel' => '+31 623456123',
+                'email' => 'b.van.driel@gmail.com',
+                'mobiel' => '+31 623456123',
             ]
         );
         SContact::create(
             [
                 'straat' => 'Terlingenhof',
-                'huisnummer' => 12,
+                'huisnummer' => 20,
                 'toevoeging' => null,
                 'postcode' => '5271TH',
                 'woonplaats' => 'Maaskantje',
-                'email' => null,
+                'email' => 'j.pastorius@gmail.com',
                 'mobiel' => '+31 623456356',
             ]
         );
@@ -139,24 +140,12 @@ class S_ContactSeeder extends Seeder
 
             [
                 'straat' => 'Veldhoen',
-                'huisnummer' => 20,
+                'huisnummer' => 31,
                 'toevoeging' => null,
                 'postcode' => '5271TH',
                 'woonplaats' => 'Maaskantje',
-                'email' => null,
-                'mobiel' => '+31 623456356',
-            ]
-        );
-        SContact::create(
-
-            [
-                'straat' => 'ScheringaDreef',
-                'huisnummer' => 31,
-                'toevoeging' => null,
-                'postcode' => '5271ZE',
-                'woonplaats' => 'Maaskantje',
                 'email' => 's.dollaard@gmail.com',
-                'mobiel' => '+31 623452314',
+                'mobiel' => '+31 623456356',
             ]
         );
         SContact::create(
