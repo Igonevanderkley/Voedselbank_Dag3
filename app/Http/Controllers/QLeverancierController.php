@@ -41,6 +41,8 @@ class QLeverancierController extends Controller
                                                 ->join('leverancier_q_s', 'contact_per_leverancier_q_s.leverancier_id', '=', 'leverancier_q_s.idd')
                                                 // ->where('leverancier_q_s.idd', '=', $id)
                                                 ->get();
+         
+                                                // dd($query_contacts);
     
         // Fetch product details for the specified leverancier
         $query_products = ProductPerLeverancierQ::select('products_q_s.naam', 'products_q_s.soort_allergie', 'products_q_s.barcode', 'products_q_s.houdbaarheidsdatum')
@@ -50,8 +52,8 @@ class QLeverancierController extends Controller
     
         // Return the leverancier details to the view
         return view('leverancier.details', [
-            'leverancier_contacts' => $query_contacts,
-            'products' => $query_products
+            'query_contacts' => $query_contacts,
+            'query_products' => $query_products
         ]);
     }
 }
