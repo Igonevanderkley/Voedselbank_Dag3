@@ -18,9 +18,15 @@ class SGezin extends Model
         'aantal_babys',
         'totaal_aantal_personen'
     ];
-// een gezin kan meerdere personen hebben
+    // een gezin kan meerdere personen hebben
     public function personen()
     {
-        return $this->hasMany(SPersoon::class, 'gezin_id');
+        return $this->hasMany(SPersoon::class);
+    }
+
+
+    public function contactenPerGezin()
+    {
+        return $this->hasMany(SContactPerGezin::class);
     }
 }

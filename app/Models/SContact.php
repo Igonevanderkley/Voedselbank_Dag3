@@ -19,4 +19,10 @@ class SContact extends Model
         'email',
         'mobiel'
     ];
+
+    
+    public function contactenPerGezin()
+    {
+        return $this->hasMany(SContactPerGezin::class);
+    }
 }
