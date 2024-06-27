@@ -7,26 +7,32 @@ use App\Models\Allergie;
 use App\Models\Gezin;
 use App\Models\Persoon;
 use App\Models\AllergiePerPersoon;
+use Exception;
 
 class AllergieController extends Controller
 {
     public function read($gezinId)
     {
-        $gezinData = Gezin::where('id', $gezinId)->first();
-        
-        $allergieenPerPersonen = Persoon::join('gezin', 'gezin_id', '=', 'gezin.id')
+        try {
+            $gezinData = Gezin::where('id', $gezinId)->first();
+
+            if (!$gezinData) {
+                throw new Exception("Gezin not found with id $gezinId");
+            }
+
+            $allergieenPerPersonen = Persoon::join('gezin', 'gezin_id', '=', 'gezin.id')
             ->join('allergie_per_persoon', 'persoon_id', '=', 'persoon.id')
             ->join('allergie', 'allergie_id', '=', 'allergie.id')
             ->where('gezin.id', $gezinId)
-            ->get();
+                ->get();
 
-        // where('id', $gezinId)->get();
-
-        // $allergieen = persoon::all();
-
-
-        return view('allergie_details', ['allergieenPerPersonen' => $allergieenPerPersonen, 'gezinData' => $gezinData]);
+            return view('allergie_details', ['allergieenPerPersonen' => $allergieenPerPersonen, 'gezinData' => $gezinData]);
+        } catch (\Exception $e) {
+            // Handle the exception (e.g., log the error, show an error message)
+            return response()->view('errors.general', ['message' => $e->getMessage()], 500);
+        }
     }
+
 
     public function update($allergieId, $persoonId) {
 
