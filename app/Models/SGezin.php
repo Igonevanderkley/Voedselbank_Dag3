@@ -24,7 +24,7 @@ class SGezin extends Model
         return $this->hasMany(SPersoon::class);
     }
 
-
+    // een gezin kan meerdere contacten hebben
     public function contactenPerGezin()
     {
         return $this->hasMany(SContactPerGezin::class);

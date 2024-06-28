@@ -21,6 +21,7 @@ class SPersoon extends Model
         'type_persoon',
         'is_vertegenwoordiger'
     ];
+    // een functie die de relatie legt tussen s_persoon en s_gezin want een persoon behoort tot een gezin
     public function gezin()
     {
         return $this->belongsTo(SGezin::class, 'gezin_id');

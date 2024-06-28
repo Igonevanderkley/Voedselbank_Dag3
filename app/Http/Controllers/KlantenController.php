@@ -9,29 +9,10 @@ use Illuminate\Http\Request;
 
 class KlantenController extends Controller
 {
-    // public function index()
-    // {
-    //     $klanten = SPersoon::join('s_contact_per_gezin', 's_persoon.gezin_id', '=', 's_contact_per_gezin.gezin_id')
-    //         ->join('s_contact', 's_contact_per_gezin.contact_id', '=', 's_contact.id')
-    //         ->join('s_gezin', 's_persoon.gezin_id', '=', 's_gezin.id')
-    //         ->select(
-    //             's_gezin.naam as gezin_naam',
-    //             DB::raw('MAX(s_persoon.is_vertegenwoordiger) as is_vertegenwoordiger'),
-    //             DB::raw('MAX(s_contact.email) as email'),
-    //             DB::raw('MAX(s_contact.mobiel) as mobiel'),
-    //             DB::raw("MAX(CONCAT(s_contact.straat, ' ', s_contact.huisnummer, ' ', IFNULL(s_contact.toevoeging, ''), ', ', s_contact.postcode, ' ', s_contact.woonplaats)) AS adres")
-    //         )
-    //         ->groupBy('s_persoon.gezin_id', 's_contact.id')
-    //         ->get();
-
-    //     return view('klanten.index')->with('klanten', $klanten);
-    // }
-
-
     public function index(Request $request)
     {
-        $postcode = $request->input('postcode'); // Verkrijg de postcode uit de request
-
+        $postcode = $request->input('postcode');
+        // hier wordt de query gemaakt die de klanten ophaalt uit de database
         $query = SPersoon::join('s_contact_per_gezin', 's_persoon.gezin_id', '=', 's_contact_per_gezin.gezin_id')
             ->join('s_contact', 's_contact_per_gezin.contact_id', '=', 's_contact.id')
             ->join('s_gezin', 's_persoon.gezin_id', '=', 's_gezin.id')
@@ -43,7 +24,7 @@ class KlantenController extends Controller
                 DB::raw("MAX(CONCAT(s_contact.straat, ' ', s_contact.huisnummer, ' ', IFNULL(s_contact.toevoeging, ''), ', ', s_contact.postcode, ' ', s_contact.woonplaats)) AS adres")
             )
             ->groupBy('s_persoon.gezin_id', 's_contact.id');
-
+        // hier wordt gekeken of de postcode leeg is of niet en wordt er gefilterd op de postcode
         if (!empty($postcode)) {
             $query->havingRaw("MAX(s_contact.postcode) = ?", [$postcode]); // Filter op postcode
         }
@@ -62,6 +43,8 @@ class KlantenController extends Controller
     //     dd($klantenDetails);
     //     return view('klanten.klantenDetails')->with('klantenDetails', $klantenDetails);
     // }
+
+    // een functie die de details van een klant laat zien vanuit de database
     public function klantenDetails($id)
     {
         $klantenDetails = DB::table('s_persoon')

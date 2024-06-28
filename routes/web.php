@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/klanten', [KlantenController::class, 'index'])->name('klanten.index');
 Route::get('/klanten/klantenDetails/{id}', [KlantenController::class, 'show'])->name('klanten.klantenDetails');
 // Route::get('/klanten/klantenDetails/{id}', [KlantenController::class, 'show'])->name('klanten.show');
+// een route maken voor de klantenDetails pagina
 Route::get('/klanten/klantenDetails/{id}', 'KlantenController@klantenDetails')->name('klanten.klantenDetails');
 // Route::get('/klanten/klantenDetails/{id}', 'KlantenController@klantenDetails')->name('klanten.show');
 

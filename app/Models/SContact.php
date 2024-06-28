@@ -20,7 +20,7 @@ class SContact extends Model
         'mobiel'
     ];
 
-    
+    // realtie tussen s_contact en s_contact_per_gezin
     public function contactenPerGezin()
     {
         return $this->hasMany(SContactPerGezin::class);

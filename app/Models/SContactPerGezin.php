@@ -14,16 +14,13 @@ class SContactPerGezin extends Model
         'gezin_id',
         'contact_id'
     ];
-
+    // een functie die de relatie legt tussen s_contact_per_gezin en s_gezin want een contact behoort tot een gezin
     public function gezin()
     {
         return $this->belongsTo(SGezin::class, 'gezin_id');
     }
-
     public function contact()
     {
         return $this->belongsTo(SContact::class, 'contact_id');
     }
 }
-
-
