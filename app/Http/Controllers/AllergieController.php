@@ -37,7 +37,7 @@ class AllergieController extends Controller
 
     public function update($allergieId, $persoonId)
     {
-
+        // Get all allergieen options
         $allergienOpties = Allergie::all();
         $gezinId = Persoon::select('gezin_id')->where('id', $persoonId)->first();
 
@@ -46,9 +46,11 @@ class AllergieController extends Controller
 
     public function edit(Request $request)
     {
+        // Get the allergieId and persoonId from the request
         $allergieId = $request->allergieId;
         $persoonId = $request->persoonId;
 
+        // Get the gezinId from the persoonId
         $gezinId = Persoon::select('gezin_id')
             ->where('id', $persoonId)->first();
 
@@ -57,8 +59,10 @@ class AllergieController extends Controller
         $allergiePerPersoon->save();
 
 
+        // Store the gezinId in the session
         session(['gezinId' => $gezinId->gezin_id]);
 
+        // Redirect to the allergie details page
         return redirect()->route('wijzig_allergie', ['allergieId' => $allergieId, 'persoonId' => $persoonId])
             ->with('status', 'De wijziging is doorgevoerd');
     }
