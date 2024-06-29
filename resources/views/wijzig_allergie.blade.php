@@ -46,8 +46,6 @@
                             type="submit">Wijzig allergie</button>
                     </form>
 
-                    {{-- <a class="bg-blue-500 hover:bg-blue-700 text-white my-10 font-bold py-2 px-4 rounded mt-2" href="{{ route('allergie_details') }}">terug</a> --}}
-
 
                     <div class="flex justify-end">
                         <a class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 ml-2"
