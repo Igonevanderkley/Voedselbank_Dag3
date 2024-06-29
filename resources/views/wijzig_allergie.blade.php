@@ -7,11 +7,9 @@
 
                     <h2 class="py-4 font-semibold text-xl text-green-600 leading-tight underline">Wijzig allergie</h2>
 
-
-
                     <form action="{{ route('edit') }}" method="POST">
                         @csrf
-
+                        <input type="hidden" name="huidigAllergieId" value="{{ $allergieId}}">
                         <input type="hidden" name="persoonId" value="{{ $persoonId }}">
                         {{-- 
                         @foreach ($allergienOpties as $allergie)
