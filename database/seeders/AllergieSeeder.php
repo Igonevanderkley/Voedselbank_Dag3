@@ -29,7 +29,7 @@ class AllergieSeeder extends Seeder
             'id' => 3,
             'naam' => 'Schaaldieren',
             'omschrijving' => 'Allergisch voor schaaldieren',
-            'anafylactisch_risico' => 'RedelijkHoog'
+            'anafylactisch_risico' => 'redelijkHoog'
         ]);
 
         Allergie::create([
@@ -50,7 +50,7 @@ class AllergieSeeder extends Seeder
             'id' => 6,
             'naam' => 'Soja',
             'omschrijving' => 'Allergisch voor soja',
-            'anafylactisch_risico' => 'ZeerLaag',
+            'anafylactisch_risico' => 'zeerLaag',
         ]);
     }
 }
