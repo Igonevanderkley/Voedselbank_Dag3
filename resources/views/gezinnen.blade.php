@@ -13,7 +13,9 @@
                                 class="w-80 my-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded-md shadow-sm h-10 px-2">
                                 <option value="0">Selecteer allergie</option>
                                 @foreach ($allergienOpties as $allergie)
-                                    <option value="{{ $allergie->id }}">{{ $allergie->naam }}</option>
+                                    <option value="{{ $allergie->id }} ">{{ $allergie->naam }} 
+                                        
+                                    </option>
                                 @endforeach
                             </select>
 

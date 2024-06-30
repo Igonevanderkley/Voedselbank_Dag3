@@ -11,12 +11,8 @@
                         @csrf
                         <input type="hidden" name="huidigAllergieId" value="{{ $allergieId}}">
                         <input type="hidden" name="persoonId" value="{{ $persoonId }}">
-                        {{-- 
-                        @foreach ($allergienOpties as $allergie)
-                            <option value="{{ $allergie->id }}">{{ $allergie->naam }}</option>
-                        @endforeach --}}
 
-                        <select name="allergieId" id="allergieId" class="w-full">
+                        <select name="allergieId" id="allergieId" class="w-full" value="">
 
                             @foreach ($allergienOpties as $allergie)
                                 <option value="{{ $allergie->id }}"
